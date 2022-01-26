@@ -1,0 +1,74 @@
+﻿@model WebApplicationv2.Models.Carrera
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Carrera</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GradoAcademico" class="control-label"></label>
+                <input asp-for="GradoAcademico" class="form-control" />
+                <span asp-validation-for="GradoAcademico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcreditadaSinaes" class="control-label"></label>
+                <input asp-for="AcreditadaSinaes" class="form-control" />
+                <span asp-validation-for="AcreditadaSinaes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Creacion" class="control-label"></label>
+                <input asp-for="Creacion" class="form-control" />
+                <span asp-validation-for="Creacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Decano" class="control-label"></label>
+                <input asp-for="Decano" class="form-control" />
+                <span asp-validation-for="Decano" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Precio" class="control-label"></label>
+                <input asp-for="Precio" class="form-control" />
+                <span asp-validation-for="Precio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequisitoGraduacion" class="control-label"></label>
+                <input asp-for="RequisitoGraduacion" class="form-control" />
+                <span asp-validation-for="RequisitoGraduacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Desactivado" class="control-label"></label>
+                <input asp-for="Desactivado" class="form-control" />
+                <span asp-validation-for="Desactivado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdUniversidad" class="control-label"></label>
+                <select asp-for="IdUniversidad" class="form-control" asp-items="ViewBag.IdUniversidad"></select>
+                <span asp-validation-for="IdUniversidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

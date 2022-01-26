@@ -1,0 +1,83 @@
+﻿@model IEnumerable<WebApplicationv2.Models.Carrera>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GradoAcademico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcreditadaSinaes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Creacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Decano)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequisitoGraduacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desactivado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdUniversidadNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GradoAcademico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AcreditadaSinaes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Creacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Decano)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequisitoGraduacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desactivado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUniversidadNavigation.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

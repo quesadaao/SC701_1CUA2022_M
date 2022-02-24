@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace API.Controllers
 {
@@ -23,8 +24,8 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Products>>> GetProducts()
         {
-            List<Products> res = (List<Products>)new BS.Products(dbcontext).GetAll();
-            return res;
+            var res = new BS.Products(dbcontext).GetAll();
+            return res.ToList();
         }
 
         // GET: api/Products/5

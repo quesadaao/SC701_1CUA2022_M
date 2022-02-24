@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace API.Controllers
 {
@@ -23,7 +24,7 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Categories>>> GetCategories()
         {
-            List<Categories> res = (List<Categories>)new BS.Categories(dbcontext).GetAll();
+            var res = new BS.Categories(dbcontext).GetAll().ToList();            
             return res;
         }
 

@@ -26,5 +26,9 @@
     <ProjectReference Include="..\DAL.EF\DAL.EF.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DataModels\" />
+  </ItemGroup>
+
 
 </Project>

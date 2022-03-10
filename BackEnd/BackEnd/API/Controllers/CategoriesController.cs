@@ -6,6 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using AutoMapper;
+using data = DAL.DO.Objects;
+using models = API.DataModels;
 
 namespace API.Controllers
 {
@@ -14,23 +17,27 @@ namespace API.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly NDbContext dbcontext;
+        private readonly IMapper mapper;
 
-        public CategoriesController(NDbContext context)
+        public CategoriesController(NDbContext context, IMapper _mapper)
         {
             dbcontext = context;
+            mapper = _mapper;
         }
 
         // GET: api/Categories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Categories>>> GetCategories()
+        public async Task<ActionResult<IEnumerable<models.Categories>>> GetCategories()
         {
-            var res = new BS.Categories(dbcontext).GetAll().ToList();            
-            return res;
+            //var res = new BS.Categories(dbcontext).GetAll().ToList();
+            var res = new BS.Categories(dbcontext).GetAll();
+            List<models.Categories> mapaux = mapper.Map<IEnumerable<data.Categories>, IEnumerable<models.Categories>>(res).ToList();
+            return mapaux;
         }
 
         // GET: api/Categories/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Categories>> GetCategories(int id)
+        public async Task<ActionResult<models.Categories>> GetCategories(int id)
         {
             var categories = new BS.Categories(dbcontext).GetOneById(id);
 
@@ -38,15 +45,15 @@ namespace API.Controllers
             {
                 return NotFound();
             }
-
-            return categories;
+            var mapaux = mapper.Map<data.Categories, models.Categories>(categories);
+            return mapaux;
         }
 
         // PUT: api/Categories/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCategories(int id, Categories categories)
+        public async Task<IActionResult> PutCategories(int id, models.Categories categories)
         {
             if (id != categories.CategoryId)
             {
@@ -55,7 +62,8 @@ namespace API.Controllers
 
             try
             {
-                new BS.Categories(dbcontext).Update(categories);
+                var mapaux = mapper.Map<models.Categories, data.Categories>(categories);
+                new BS.Categories(dbcontext).Update(mapaux);
             }
             catch (Exception ee)
             {
@@ -76,11 +84,12 @@ namespace API.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Categories>> PostCategories(Categories categories)
+        public async Task<ActionResult<models.Categories>> PostCategories(models.Categories categories)
         {
             try
             {
-                new BS.Categories(dbcontext).Insert(categories);
+                var mapaux = mapper.Map<models.Categories, data.Categories>(categories);
+                new BS.Categories(dbcontext).Insert(mapaux);
             }
             catch (Exception)
             {
@@ -92,7 +101,7 @@ namespace API.Controllers
 
         // DELETE: api/Categories/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Categories>> DeleteCategories(int id)
+        public async Task<ActionResult<models.Categories>> DeleteCategories(int id)
         {
             var categories = new BS.Categories(dbcontext).GetOneById(id);
             if (categories == null)
@@ -108,8 +117,8 @@ namespace API.Controllers
             {
                 BadRequest();
             }
-
-            return categories;
+            var mapaux = mapper.Map<data.Categories, models.Categories>(categories);
+            return mapaux;
         }
 
         private bool CategoriesExists(int id)

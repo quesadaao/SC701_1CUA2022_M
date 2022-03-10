@@ -7,11 +7,9 @@ namespace API.Mapping
     {
         public MappingProfile()
         {
-            //CreateMap<data.Foci, DataModels.Foci>().ReverseMap();
-            //CreateMap<data.GroupInvitations, DataModels.GroupInvitations>().ReverseMap();
-            //CreateMap<data.GroupRequests, DataModels.GroupRequests>().ReverseMap();
-            //CreateMap<data.Groups, DataModels.Groups>().ReverseMap();
-            //CreateMap<data.GroupUpdates, DataModels.GroupUpdates>().ReverseMap();
+            CreateMap<data.Categories, DataModels.Categories>().ReverseMap();
+            CreateMap<data.Products, DataModels.Products>().ReverseMap();
+            CreateMap<data.Suppliers, DataModels.Suppliers>().ReverseMap();            
         }
     }
 }

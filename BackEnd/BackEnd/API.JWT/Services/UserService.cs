@@ -7,6 +7,9 @@ namespace API.JWT.Services
             // Prueba de simulación, el valor predeterminado es verificación artificial efectiva
             public bool IsValid(LoginRequestDTO req)
             {
+                //Se debe agregar la verificacion hacia la base de datos 
+
+
                 return true;
             }
         }

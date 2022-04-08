@@ -19,8 +19,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL.Repository", "DAL.Repos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.JWT", "API.JWT\API.JWT.csproj", "{3E154C0A-3A35-4F3A-91D4-80DBFA7B0633}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.OAuth20", "API.OAuth20\API.OAuth20.csproj", "{6B827056-EFB2-413B-84B9-88AF3ADE19EC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,10 +57,6 @@ Global
 		{3E154C0A-3A35-4F3A-91D4-80DBFA7B0633}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E154C0A-3A35-4F3A-91D4-80DBFA7B0633}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E154C0A-3A35-4F3A-91D4-80DBFA7B0633}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B827056-EFB2-413B-84B9-88AF3ADE19EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B827056-EFB2-413B-84B9-88AF3ADE19EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B827056-EFB2-413B-84B9-88AF3ADE19EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B827056-EFB2-413B-84B9-88AF3ADE19EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

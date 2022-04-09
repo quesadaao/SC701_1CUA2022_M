@@ -9,24 +9,26 @@ using System.Linq;
 using AutoMapper;
 using data = DAL.DO.Objects;
 using models = API.DataModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
-    {
+        {
         private readonly NDbContext dbcontext;
         private readonly IMapper mapper;
 
         public CategoriesController(NDbContext context, IMapper _mapper)
-        {
+            {
             dbcontext = context;
             mapper = _mapper;
-        }
+            }
 
         // GET: api/Categories
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<models.Categories>>> GetCategories()
         {
             //var res = new BS.Categories(dbcontext).GetAll().ToList();

@@ -1,0 +1,98 @@
+﻿@model IEnumerable<FE.Identity.Models.Products>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>Products</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.ProductName)*@
+                <label class="control-label">Name</label>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.QuantityPerUnit)*@
+                <label class="control-label">Quantity Per Unit</label>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.UnitPrice)*@
+                <label class="control-label">Unit Price</label>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.UnitsInStock)*@
+                <label class="control-label">Units In Stock</label>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.UnitsOnOrder)*@
+                <label class="control-label">Units On Order</label>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.ReorderLevel)*@
+                <label class="control-label">Reorder Level</label>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Discontinued)*@
+                <label class="control-label">Discontinued</label>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.DateDiscontinued)*@
+                <label class="control-label">Date Discontinued</label>
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Category)*@
+                <label class="control-label">Category</label>
+            </th>
+           @* <th>
+                @Html.DisplayNameFor(model => model.Supplier)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantityPerUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitsInStock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitsOnOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReorderLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discontinued)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateDiscontinued)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+           @* <td>
+                @Html.DisplayFor(modelItem => item.Supplier.CompanyName)
+            </td>*@
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

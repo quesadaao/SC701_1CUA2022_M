@@ -7,8 +7,19 @@ namespace API.Services
         // Prueba de simulación, el valor predeterminado es verificación artificial efectiva
         public bool IsValid(LoginRequestDTO req)
             {
+            // Quemar la informacion 
+            // Ir base de datos para revisar si exite un usuario
 
-            return true;
+            if (true)
+                {
+                return true;
+                }
+            else 
+                { 
+                return false; 
+                
+                }
+
             }
         }
 }

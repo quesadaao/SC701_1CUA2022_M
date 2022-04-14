@@ -24,7 +24,7 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Temporada>>> GetTemporada()
         {
-            return await _context.Temporada.ToListAsync();
+            return await _context.Temporada.Include(c => c.IdAnimeNavigation).ToListAsync();
         }
 
         // GET: api/Temporadas/5
